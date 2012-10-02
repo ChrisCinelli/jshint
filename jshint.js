@@ -1179,11 +1179,11 @@ var JSHINT = (function () {
                     return;
                 }
 
-                // Check for non-camelcase names. Names like MY_VAR and
+                // Check for non-camelcase names. Names like MY_VAR, __defineGetter__, and
                 // _myVar are okay though.
 
                 if (option.camelcase) {
-                    if (name.replace(/^_+/, "").indexOf("_") > -1 && !name.match(/^[A-Z0-9_]*$/)) {
+                    if (name.replace(/^_+/, "").indexOf("_") > -1 && !name.match(/^[A-Z0-9_]*$/) && !/^__[^_]+__$/.test(name)) {
                         warningAt("Identifier '{a}' is not in camel case.", line, from, value);
                     }
                 }
