@@ -4234,8 +4234,8 @@ loop:   for (;;) {
             if (nexttoken.id !== ";") {
                 expression(20);
                 if (nexttoken.id === "=") {
-                    if (!option.boss)
-                        warning("Expected a conditional expression and instead saw an assignment.");
+                    // if (!option.boss)
+                    //     warning("Expected a conditional expression and instead saw an assignment.");
                     advance("=");
                     expression(20);
                 }
