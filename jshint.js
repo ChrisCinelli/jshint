@@ -3835,7 +3835,7 @@ loop:   for (;;) {
                 if (nexttoken.id === "undefined") {
                     warning("It is not necessary to initialize '{a}' to 'undefined'.", token, id);
                 }
-                if (peek(0).id === "=" && nexttoken.identifier) {
+                if (peek(0).id === "=" && nexttoken.identifier && nexttoken.value != 'exports') {
                     error("Variable {a} was not declared correctly.",
                             nexttoken, nexttoken.value);
                 }
