@@ -3326,7 +3326,7 @@ loop:   for (;;) {
                     if ("Number String Boolean Date Object".indexOf(left.value) === -1) {
                         if (left.value === "Math") {
                             warning("Math is not a function.", left);
-                        } else if (option.newcap) {
+                        } else if (option.newcap && left.value != 'Class') {
                             warning("Missing 'new' prefix when invoking a constructor.", left);
                         }
                     }
