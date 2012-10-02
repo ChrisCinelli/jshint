@@ -4066,7 +4066,7 @@ loop:   for (;;) {
                             token);
                     }
                 }
-                indentation(-option.indent);
+                indentation();
                 advance("case");
                 this.cases.push(expression(20));
                 increaseComplexityCount();
@@ -4088,7 +4088,7 @@ loop:   for (;;) {
                             token);
                     }
                 }
-                indentation(-option.indent);
+                indentation();
                 advance("default");
                 g = true;
                 advance(":");
@@ -4109,6 +4109,8 @@ loop:   for (;;) {
                 error("Missing '{a}'.", nexttoken, "}");
                 return;
             default:
+                indent += option.indent;
+
                 if (g) {
                     switch (token.id) {
                     case ",":
@@ -4133,6 +4135,8 @@ loop:   for (;;) {
                         return;
                     }
                 }
+
+                indent -= option.indent;
             }
         }
     }).labelled = true;
